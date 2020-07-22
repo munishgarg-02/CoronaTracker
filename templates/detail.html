@@ -41,14 +41,22 @@
     <span><b>(THE DATA OF THE STATES HERE IS ACCORDING TO THE INDIAN GOVT. WEBSITE FOR COVID-19)</b></span><br>
     <span><b>(AS THE CASES WILL BE UPDATED ON THE WEBSITE OF INDIAN GOVT. , THE CHANGES WILL BE REFLECTED HERE!!)</b></span>
     <div class="row mt-2">
-        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>STATES</u></b></h6></div>
-        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>TOTAL CONFIRMED CASES</u></b></h6></div>
-        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>TOTAL RECOVERED</u></b></h6></div>
-        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>TOTAL DEATHS</u></b></h6></div>
+        <div class="col-3 border border-success">
+            <small><b><u>STATES</u></b></small>
+        </div>
+        <div class="col-3 border border-success">
+            <small><b><u>TOTAL CONFIRMED</u></b></small>
+        </div>
+        <div class="col-3 border border-success">
+            <small><b><u>TOTAL RECOVERED</u></b></small>
+        </div>
+        <div class="col-3 border border-success">
+            <small><b><u>TOTAL DEATHS</u></b></small>
+        </div>
     </div>
     {% for case in dic %}
         <div class="row">
-        <div class="col-3 border border-success">{{case.state}}</div>
+        <div class="col-3 border border-success text-truncate">{{case.state}}</div>
         <div class="col-3 border border-success">{{case.confirmed}}</div>
         <div class="col-3 border border-success">{{case.recovered}}</div>
         <div class="col-3 border border-success">{{case.deaths}}</div>
