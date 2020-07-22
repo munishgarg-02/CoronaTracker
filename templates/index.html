@@ -50,7 +50,9 @@
           <img src="https://www.countryflags.io/{{case.CountryCode}}/shiny/64.png" style="display: block;margin-left: auto;margin-right: auto;">
           <h4 align="center" style="font-family: Georgia"><u>Total Confirmed Cases:</u></h4>
           <h5 align="center"style="font-family: Georgia;font-weight: bold;">{{case.TotalConfirmed}}</h5>
+            <div class="container">
           <a href="{% url 'detail' case.Slug %}" style="display: block;text-align: center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><u>Click here to know more about this country's cases.</u></a>
+            </div>
         </div>
       {% endfor %}
     </div>
