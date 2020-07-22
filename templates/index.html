@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <style>
+    .swiper-container {
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 350px;
+      height: 340px;
+      border: solid 2px red;
+      border-radius: 5px;
+      background-color: yellow;
+    }
+    nav{
+      border: solid black 3px;
+      border-radius: 3px;
+    }
+    .font{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    #main{
+            background-image: url('static/images/snow.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+  </style>
+
+{% endblock %}
+
+{% block content %}
+  {% include 'nav.html' %}
+  <h1 align="center" style="font-family: sans-serif;color:red;" class="mt-4"><u>Welcome To the Corona Tracker Web App</u></h1>
+  {% include 'global.html' %}
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for case in x %}
+        <div class="swiper-slide">
+          <h4 align="center" style="font-family: Georgia"><u>COUNTRY:</u></h4>
+          <h5 align="center" style="font-family: Georgia;font-weight: bold;">{{case.Country.upper}}</h5>
+          <img src="https://www.countryflags.io/{{case.CountryCode}}/shiny/64.png" style="display: block;margin-left: auto;margin-right: auto;">
+          <h4 align="center" style="font-family: Georgia"><u>Total Confirmed Cases:</u></h4>
+          <h5 align="center"style="font-family: Georgia;font-weight: bold;">{{case.TotalConfirmed}}</h5>
+          <a href="{% url 'detail' case.Slug %}" style="display: block;text-align: center;"><u>Click here to know more about this country's cases.</u></a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% include 'footer.html' %}
+  <script src="/static/js/date.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      }
+    });
+    let show = () =>{
+      let input = document.getElementById('search')
+      let inp = input.value
+      let arr = document.getElementsByClassName('swiper-slide')
+      for(let i=0;i<arr.length;i++){
+        let x = arr[i].firstElementChild.nextElementSibling.innerText.toLowerCase()
+        if(x.indexOf(inp)>=0){
+          console.log(x.indexOf(inp))
+          arr[i].style.display='block'
+        }
+        else{
+          arr[i].style.display='none'
+        }
+      }
+    }
+  </script>
+{% endblock %}
+
+</html>

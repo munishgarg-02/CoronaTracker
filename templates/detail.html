@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+{% block head %}
+    <title>{{x.Country}}</title>
+    <style>
+        .font{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #main{
+            background-image: url('/static/images/snow.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include 'nav.html' %}
+    {% include 'global.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-12 border border-success mt-4">
+            <h3 align="center" class="font"><u>COUNTRY</u></h3>
+            <h4 align="center" class="font"><b>{{x.Country.upper}}</b></h4>
+            <img src="https://www.countryflags.io/{{x.CountryCode}}/shiny/64.png" style="display: block;margin-left: auto;margin-right: auto;">
+        </div>
+        <div class="col-md-8 col-12 border border-success mt-4">
+            <h3 align="center" class="font"><u>DETAILS ABOUT THE COUNTRY</u></h3>
+            <ul class="font">
+                <li><h5><b>New Confirmed Cases:</b> {{x.NewConfirmed}}</h5></li>
+                <li><h5><b>Total Confirmed Cases:</b> {{x.TotalConfirmed}}</h5></li>
+                <li><h5><b>Total Recovered:</b> {{x.TotalRecovered}}</h5></li>
+                <li><h5><b>New Deaths:</b> {{x.NewDeaths}}</h5></li>
+                <li><h5><b>Total Deaths:</b> {{x.TotalDeaths}}</h5></li>
+            </ul>
+        </div>
+    </div>
+    {% if dic %}
+    <span><b>(THE DATA OF THE STATES HERE IS ACCORDING TO THE INDIAN GOVT. WEBSITE FOR COVID-19)</b></span><br>
+    <span><b>(AS THE CASES WILL BE UPDATED ON THE WEBSITE OF INDIAN GOVT. , THE CHANGES WILL BE REFLECTED HERE!!)</b></span>
+    <div class="row mt-2">
+        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>STATES</u></b></h6></div>
+        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>TOTAL CONFIRMED CASES</u></b></h6></div>
+        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>TOTAL RECOVERED</u></b></h6></div>
+        <div class="col-3 border border-success"><h6 align="center" class="font"><b><u>TOTAL DEATHS</u></b></h6></div>
+    </div>
+    {% for case in dic %}
+        <div class="row">
+        <div class="col-3 border border-success">{{case.state}}</div>
+        <div class="col-3 border border-success">{{case.confirmed}}</div>
+        <div class="col-3 border border-success">{{case.recovered}}</div>
+        <div class="col-3 border border-success">{{case.deaths}}</div>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+    {% include 'footer.html' %}
+    <script src="/static/js/date.js"></script>
+{% endblock %}

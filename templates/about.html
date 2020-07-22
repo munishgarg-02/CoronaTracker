@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>ABOUT</title>
+<style>
+    #main{
+        background-image: url('/static/images/snow.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    p{
+        color: black;
+        font-family: sans-serif;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% include 'nav.html' %}
+<div class="container border border-danger mt-5">
+    <h3 align="center" style="font-family: Georgia;color: red;"><b><u>ABOUT ME</u></b></h3>
+    <p><b>HELLO GUYS!!MYSELF IS MUNISH KUMAR GARG ANS THIS CORONA TRACKING WEB APPLICATION IS DEVELOPED BY ME.I AM CUURENTLY A 3RD 
+        YEAR STUDENT OF B.TECH (COMPUTER ENGINEERING) IN J.C.BOSE UNIVERSITY OF SCIENCE AND TECHNOLOGY.</b>
+    </p>
+    <p><b>THIS WEB APPLICATION USES DJANGO AT ITS BACKEND AND BOOTSTRAP FOR ITS FRONTEND (AS FAR AS THE FRAMEWORKS ARE CONCERNED).</b></p>
+    <p><b>POSTMAN APIs ARE USED FOR COLLECTION OF THE DATA. SERIOUSLY , POSTMAN IS A VERY GOOD SOFTWARE WHEN IT COMES TO APIs.</b></p>
+    <p><b>SOME JAVASCRIPT LIBRARIES ARE USED HERE LIKE SWIPER.JS, POPPER.JS AND JQUERY.</b></p>
+    <p><b>I AM VERY MUCH INTO THE WEB DEVELOPMENT AND I HAVE TAKEN PART IN THE LARGEST VIRTUAL HACKATHON (HACKJAIPUR).</b></p>
+    <p style="display: inline-block;"><b>ANYONE CAN REACH ME THROUGH THE INSTAGRAM LINK PROVIDED IN THE FORM OF ICON.</b></p> 
+    <a href="http://instagram.com/this_is_mg__/" style="color: magenta;" title="Insta link" target="_blank"><img src="/static/images/instagram.png"></a></i>
+</div>
+{% include 'footer.html' %}
+<script src="/static/js/date.js"></script>
+{% endblock %}

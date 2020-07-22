@@ -1,0 +1,20 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link navbar-brand" href="{% url 'main' %}" style="color: yellow;font-family: Georgia, 'Times New Roman', Times, serif;"><u>HOME</u><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link navbar-brand" href="{% url 'about' %}" style="color: yellow;font-family: Georgia, 'Times New Roman', Times, serif;"><u>ABOUT THE DEVELOPER</u></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link navbar-brand" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses" style="color: yellow;font-family: Georgia, 'Times New Roman', Times, serif;"><u>COVID-19(FAQ)</u></a>
+        </li>
+      </ul>
+      <input class="form-control mr-sm-2" id = "search" type="search" placeholder="This Functionality is currently unavilable" aria-label="Search" onkeyup="show()" disabled>
+    </div>
+  </nav>
